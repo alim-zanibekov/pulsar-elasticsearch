@@ -1,6 +1,6 @@
 # Pulsar -> Elasticsearch
 
-Start pulsar and elasticsearcch
+Start pulsar and elasticsearch
 ```sh
 $ docker-compose up -d
 ```
