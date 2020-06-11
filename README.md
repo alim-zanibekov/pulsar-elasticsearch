@@ -21,7 +21,7 @@ $ curl --header "Content-Type: application/json" \
   http://localhost:8080/admin/v2/namespaces/tenant-1/ns-1  
 ```
 
-Create Elasticsearch worker
+Create Elasticsearch sink
 ```sh 
 $ curl --header "Content-Type: multipart/form-data" \
   --request POST \
@@ -30,7 +30,7 @@ $ curl --header "Content-Type: multipart/form-data" \
   http://localhost:8080/admin/v3/sinks/tenant-1/ns-1/elasticsearch
 ```
 
-Sink manageement
+Sink management
 ```sh
 $ curl --request POST \
   http://localhost:8080/admin/v3/sinks/tenant-1/ns-1/elasticsearch/start
