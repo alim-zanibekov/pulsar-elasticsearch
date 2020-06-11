@@ -30,6 +30,12 @@ $ curl --header "Content-Type: multipart/form-data" \
   http://localhost:8080/admin/v3/sinks/tenant-1/ns-1/elasticsearch
 ```
 
+Sink config class
+[https://github.com/apache/pulsar/blob/master/pulsar-common/src/main/java/org/apache/pulsar/common/io/SinkConfig.java](https://github.com/apache/pulsar/blob/master/pulsar-common/src/main/java/org/apache/pulsar/common/io/SinkConfig.java)
+
+Endpoint
+[https://github.com/apache/pulsar/blob/master/pulsar-functions/worker/src/main/java/org/apache/pulsar/functions/worker/rest/api/v3/SinksApiV3Resource.java](https://github.com/apache/pulsar/blob/master/pulsar-functions/worker/src/main/java/org/apache/pulsar/functions/worker/rest/api/v3/SinksApiV3Resource.java)
+
 Sink management
 ```sh
 $ curl --request POST \
