@@ -1,0 +1,34 @@
+version: '3.3'
+
+volumes:
+  pulsardata:
+  pulsarconf:
+  elasticdata:
+
+services: 
+  pulsar:
+    image: apachepulsar/pulsar:2.5.2
+    volumes: 
+      - pulsardata:/pulsar/data
+      - pulsarconf:/pulsar/conf
+      - ./connectors:/pulsar/connectors
+    ports: 
+      - 6650:6650
+      - 8080:8080
+    environment:
+      - PULSAR_MEM=" -Xms512m -Xmx512m -XX:MaxDirectMemorySize=1g"  
+    command: >
+      /bin/bash -c
+      "bin/apply-config-from-env.py conf/standalone.conf
+      && bin/pulsar standalone"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.1
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticdata:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
